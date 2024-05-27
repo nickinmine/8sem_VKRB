@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Настройка пользователей</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="../static/images/logo.svg" type="image/png">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="../static/users.css">
+    <link rel="stylesheet" href="../static/stations.css">
+</head>
+<body>
+    <div class="page">
+        <header class="header">
+            <div class="header-container">
+                <div class="header-menu">
+                    <a href="/prices" class="header-logo" title="К ценам на топливо">Цены</a>
+                </div>
+                <span class="header-span-text">Страница администратора</span>
+                <a href="/logout" class="header-auth" title="Выход из системы">Выйти</a>
+            </div>
+        </header>
+
+
+        <main class="main">
+            <div class="main-container">
+                <div class="air-left"></div>
+                <div class="profile">
+                    <div class="content">
+                        <div class="title">
+                            <h2>Создание нового пользователя</h2>
+                            <form action="/users/new" method="post">
+                                <div class="block-row">
+                                    <label>Имя нового пользователя:</label>
+                                    <input name="user_name" type="text" required>
+                                </div>
+                                <div class="block-row">
+                                    <label>Логин нового пользователя:</label>
+                                    <input name="user_login" type="text" required>
+                                </div>
+                                <div class="block-row">
+                                    <label>Пароль нового пользователя:</label>
+                                    <input name="user_password" type="text" required>
+                                </div>
+                                <input type="submit" value="Создать">
+                            </form>
+                        </div>
+                        <div class="main-menu">
+                        </div>
+                        <div class="title">
+                            <h2>Список пользователей</h2>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>UUID</th>
+                                        <th>Имя</th>
+                                        <th>Логин</th>
+                                        <th>Действие</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for user in user_list %}
+                                    <tr>
+                                        <th>{{ user.user_uuid }}</th>
+                                        <th>{{ user.user_name }}</th>
+                                        <th>{{ user.user_login }}</th>
+                                        <th>
+                                            <form action="/users/delete" method="post">
+                                                <input type="hidden" name="user_uuid" value="{{user.user_uuid}}">
+                                                <input type="submit" value="Удалить">
+                                            </form>
+                                        </th>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                            <br>
+                            <br>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <div class="air-right"></div>
+            </div>
+        </main>
+
+
+        <footer class="footer">
+            <div class="footer-container">
+                <span class="footer-span-text1">
+                    Автор сайта: Зубов Николай Андреевич<br>
+                    Студент группы ИКБО-10-20<br>
+                    zubov.n.a@edu.mirea.ru
+                </span>
+                <span class="footer-span-text2">
+                    <a href="https://www.mirea.ru/">https://www.mirea.ru/</a><br>
+                    <address>РТУ МИРЭА. Москва, Проспект Вернадского, 78</address>
+                </span>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

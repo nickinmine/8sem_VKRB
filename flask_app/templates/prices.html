@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редактирование цен</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="../static/images/logo.svg" type="image/png">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="../static/prices.css">
+</head>
+<body>
+    <div class="page">
+        <header class="header">
+            <div class="header-container">
+                <div class="header-menu">
+                    <a href="/users" class="header-logo" title="К списку администраторов">Пользователи</a>
+                </div>
+                <span class="header-span-text">Страница администратора</span>
+                <a href="/logout" class="header-auth" title="Выход из системы">Выйти</a>
+            </div>
+        </header>
+
+
+        <main class="main">
+            <div class="main-container">
+                <div class="air-left"></div>
+                <div class="profile">
+                    <div class="content">
+                        <div class="title">
+                            <h2>Редактирование цен</h2>
+                            <p>Дата и время актуализации диапазона цен: {{ fuelPriceLimits.limits_updating_date }}</p>
+                            <form action="/prices" method="post">
+                                <div class="block-row">
+                                    <label>Минимальная стоимость АИ-92:</label>
+                                    <input name="ai_92_min" type="number" step="0.01" value="{{fuelPriceLimits.ai_92_min}}" placeholder="{{fuelPriceLimits.ai_92_min}}" required>
+                                    <label>рублей/литр</label>
+                                </div>
+                                <div class="block-row">
+                                    <label>Максимальная стоимость АИ-92:</label>
+                                    <input name="ai_92_max" type="number" step="0.01" value="{{fuelPriceLimits.ai_92_max}}" placeholder="{{fuelPriceLimits.ai_92_max}}" required>
+                                    <label>рублей/литр</label>
+                                </div>
+                                <div class="block-row">
+                                    <label>Минимальная стоимость АИ-95:</label>
+                                    <input name="ai_95_min" type="number" step="0.01" value="{{fuelPriceLimits.ai_95_min}}" placeholder="{{fuelPriceLimits.ai_95_min}}" required>
+                                    <label>рублей/литр</label>
+                                </div>
+                                <div class="block-row">
+                                    <label>Максимальная стоимость АИ-95:</label>
+                                    <input name="ai_95_max" type="number" step="0.01" value="{{fuelPriceLimits.ai_95_max}}" placeholder="{{fuelPriceLimits.ai_95_max}}" required>
+                                    <label>рублей/литр</label>
+                                </div>
+                                <div class="block-row">
+                                    <label>Минимальная стоимость АИ-98:</label>
+                                    <input name="ai_98_min" type="number" step="0.01" value="{{fuelPriceLimits.ai_98_min}}" placeholder="{{fuelPriceLimits.ai_98_min}}" required>
+                                    <label>рублей/литр</label>
+                                </div>
+                                <div class="block-row">
+                                    <label>Максимальная стоимость АИ-98:</label>
+                                    <input name="ai_98_max" type="number" step="0.01" value="{{fuelPriceLimits.ai_98_max}}" placeholder="{{fuelPriceLimits.ai_98_max}}" required>
+                                    <label>рублей/литр</label>
+                                </div>
+                                <div class="block-row">
+                                    <label>Минимальная стоимость АИ-100:</label>
+                                    <input name="ai_100_min" type="number" step="0.01" value="{{fuelPriceLimits.ai_100_min}}" placeholder={{fuelPriceLimits.ai_100_min}}" required>
+                                    <label>рублей/литр</label>
+                                </div>
+                                <div class="block-row">
+                                    <label>Максимальная стоимость АИ-100:</label>
+                                    <input name="ai_100_max" type="number" step="0.01" value="{{fuelPriceLimits.ai_100_max}}" placeholder="{{fuelPriceLimits.ai_100_max}}" required>
+                                    <label>рублей/литр</label>
+                                </div>
+                                <div class="block-row">
+                                    <label>Минимальная стоимость ДТ:</label>
+                                    <input name="dt_min" type="number" step="0.01" value="{{fuelPriceLimits.dt_min}}" placeholder="{{fuelPriceLimits.dt_min}}" required>
+                                    <label>рублей/литр</label>
+                                </div>
+                                <div class="block-row">
+                                    <label>Максимальная стоимость ДТ:</label>
+                                    <input name="dt_max" type="number" step="0.01" value="{{fuelPriceLimits.dt_max}}" placeholder="{{fuelPriceLimits.dt_max}}" required>
+                                    <label>рублей/литр</label>
+                                </div>
+                                <div class="block-row">
+                                    <label>Минимальная стоимость газ:</label>
+                                    <input name="gas_min" type="number" step="0.01" value="{{fuelPriceLimits.gas_min}}" placeholder="{{fuelPriceLimits.gas_min}}" required>
+                                    <label>рублей/литр</label>
+                                </div>
+                                <div class="block-row">
+                                    <label>Максимальная стоимость газ:</label>
+                                    <input name="gas_max" type="number" step="0.01" value="{{fuelPriceLimits.gas_max}}" placeholder="{{fuelPriceLimits.gas_max}}" required>
+                                    <label>рублей/литр</label>
+                                </div>
+                                <input type="submit" value="Обновить">
+                            </form>
+                            <h2>Актуализация цен</h2>
+                            <p>Дата и время обновления цен: {{ fuelPriceLimits.prices_updating_date }}</p>
+                            <form action="/prices/update" method="post">
+                                <input type="submit" value="Обновить">
+                            </form>
+                            <br>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <div class="air-right"></div>
+            </div>
+        </main>
+
+
+        <footer class="footer">
+            <div class="footer-container">
+                <span class="footer-span-text1">
+                    Автор сайта: Зубов Николай Андреевич<br>
+                    Студент группы ИКБО-10-20<br>
+                    zubov.n.a@edu.mirea.ru
+                </span>
+                <span class="footer-span-text2">
+                    <a href="https://www.mirea.ru/">https://www.mirea.ru/</a><br>
+                    <address>РТУ МИРЭА. Москва, Проспект Вернадского, 78</address>
+                </span>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

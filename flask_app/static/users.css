@@ -1,0 +1,61 @@
+.header-auth:hover {
+    background-color: #B30909;
+}
+
+.button {
+    font-size: 16px;
+    padding: 2px;
+    cursor: pointer;
+    border-radius: 35px;
+    width: 320px;
+    text-align: center;
+    background-color: rgba(0,0,0,0.2);
+
+}
+
+button {
+    font-family: 'Montserrat', sans-serif;
+    border: none;
+}
+
+.profile {
+    width: 100%;
+}
+
+input{
+    width: 400px;
+    padding:5px 10px;
+    margin:10px;
+    border: none;
+}
+
+input[type="submit"] {
+    width: 100px;
+    display: block;
+}
+
+input[type="submit"]:hover {
+    background-color: #9ad5ff;
+    cursor: pointer;
+}
+
+.userdata {
+    display: flex;
+    flex-direction: row;
+}
+
+.userdata > img {
+    margin-right: 20px;
+}
+
+.block-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+label {
+    width: 100%
+}
